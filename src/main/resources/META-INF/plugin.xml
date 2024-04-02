@@ -1,0 +1,40 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.oldsboy.OldsboyIdeaPlugin2</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>OldsboyIdeaPlugin2</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="oldsboy@hotmail.com" url="https://oldsboy@hotmail.com">oldsboy</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description>oldsboy使用的idea插件2-----------------------------------------</description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.oldsboy.oldsboyideaplugin2.State"/>
+    </extensions>
+
+    <actions>
+        <group id="group1" text="自定义工具包">
+            <add-to-group group-id="MainMenu" />
+            <action id="duplicate_add_1" class="com.oldsboy.oldsboyideaplugin2.action.Action_DuplicateAdd1" text="复制行并加1" description="复制行并加1" >
+                <add-to-group group-id="EditorPopupMenu" anchor="last" />
+                <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt D"/>
+            </action>
+            <action id="get_url" class="com.oldsboy.oldsboyideaplugin2.action.Action_GetUrl" text="获取到页面内所有请求" description="获取到页面内所有请求">
+                <add-to-group group-id="GenerateGroup" anchor="after" relative-to-action="ReplaceInPath"/>
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
